@@ -11,7 +11,7 @@ class Cible : public Case
 public:
     int classe=2;
     explicit Cible (QWidget *parent = nullptr);
-    void setSize();
+    void setSize() ;
 
 private:
     QLabel *imageLabel;

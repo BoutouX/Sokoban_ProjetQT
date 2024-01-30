@@ -1,10 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "mur.h"
-#include "cible.h"
-#include "personnage.h"
-#include "case.h"
 
+#include "case.h"
+#include "cible.h"
+#include "mur.h"
+#include "personnage.h"
 
 #include <QDebug>
 #include <QList>
@@ -20,7 +20,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     for (int i = 0; i < ligne; i++) {
         for (int j = 0; j < col; j++) {
-            tableau[i][j] = nullptr;
             tableau[i][j] = new Case(this);
             tableau[i][j]->setCoordinates(i*(taille), j*(taille));
             tableau[i][j]->setSize();
@@ -29,13 +28,21 @@ MainWindow::MainWindow(QWidget *parent)
         }
     }
 
-    p = new Personnage(52,52);
+    delete tableau[8][8];
+    tableau[8][8] = new Cible(this);
+    tableau[8][8]->setCoordinates(8*(taille), 8*(taille));
+    tableau[8][8]->setSize();
+    tableau[8][8]->setParent(this);
+    tableau[8][8]->show();
 
+    p = new Personnage(50,50);
 
+    tableau[1][1]->hide();
 }
 
 
 void MainWindow::paintEvent(QPaintEvent* e) {
+
     QWidget::paintEvent(e);
     QPainter painter(this);
 
@@ -44,12 +51,19 @@ void MainWindow::paintEvent(QPaintEvent* e) {
 
 void MainWindow::puisjemedeplacer(const int x, const int y){
 
-    if (tableau[x][y]->classe==1) {
+
+
+    if (tableau[x/50][y/50]->classe==1) {
+        tableau[p->getX()/50][p->getY()/50]->show();
+        tableau[x/50][y/50]->hide();
         p->deplacer(x,y);
 
     }
-    else if (tableau[x][y]->classe==2){
+    else if (tableau[x/50][y/50]->classe==2){
+        tableau[p->getX()/50][p->getY()/50]->show();
+        tableau[x/50][y/50]->hide();
         p->deplacer(x,y);
+
     }
 }
 
@@ -59,28 +73,27 @@ void MainWindow::keyPressEvent(QKeyEvent* event) {
 
     switch(event->key())
     {
-    case Qt::Key_S :
+    case Qt::Key_Left :
     {
         puisjemedeplacer(p->getX()-taille, p->getY());
         break;
     }
-    case Qt::Key_F :
+    case Qt::Key_Right :
     {
         puisjemedeplacer(p->getX()+taille,p->getY());
         break;
     }
-    case Qt::Key_C :
+    case Qt::Key_Down :
     {
         puisjemedeplacer(p->getX(),p->getY()+taille);
         break;
     }
-    case Qt::Key_E :
+    case Qt::Key_Up :
     {
         puisjemedeplacer(p->getX(),p->getY()-taille);
         break;
     }
     }
-
     repaint();
 }
 
