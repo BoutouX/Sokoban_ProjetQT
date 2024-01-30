@@ -15,5 +15,6 @@ void Cible::setSize()
     // Régler la taille du widget Cible
     setFixedSize(taille, taille);
     setImagePath(":/cible/Cible.jpg");
+    //commentzire
 
 }
