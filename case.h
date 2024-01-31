@@ -7,7 +7,7 @@
 
 
 class Case : public QWidget
-{
+{   //bonjour
     Q_OBJECT
 public:
     int classe=1;
