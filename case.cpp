@@ -37,3 +37,7 @@ void Case::setSize()
     setImagePath(":/case/case.jpg");
 }
 
+void Case::setSizecible(){}
+void Case::setSizemur(){}
+void Case::classemur(){}
+void Case::classecible(){}

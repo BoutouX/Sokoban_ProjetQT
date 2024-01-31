@@ -20,23 +20,95 @@ MainWindow::MainWindow(QWidget *parent)
 
     for (int i = 0; i < ligne; i++) {
         for (int j = 0; j < col; j++) {
-            tableau[i][j] = new Case(this);
+            tableau[i][j] = new Cible(this);
             tableau[i][j]->setCoordinates(i*(taille), j*(taille));
             tableau[i][j]->setSize();
             tableau[i][j]->setParent(this);
-            tableau[i][j]->show();
+
         }
     }
 
     delete tableau[8][8];
     tableau[8][8] = new Cible(this);
     tableau[8][8]->setCoordinates(8*(taille), 8*(taille));
-    tableau[8][8]->setSize();
+    tableau[8][8]->setSizecible();
+    tableau[8][8]->classecible();
     tableau[8][8]->setParent(this);
-    tableau[8][8]->show();
+
+    delete tableau[2][ligne-2];
+    tableau[2][ligne-2] = new Cible(this);
+    tableau[2][ligne-2]->setCoordinates(2*(taille), (ligne-2)*(taille));
+    tableau[2][ligne-2]->setSizecible();
+    tableau[2][ligne-2]->classecible();
+    tableau[2][ligne-2]->setParent(this);
+
+    for (int i = 0; i < ligne; i++) {
+        delete tableau[0][i];
+        tableau[0][i] = new Mur(this);
+        tableau[0][i]->setCoordinates(0*(taille), i*(taille));
+        tableau[0][i]->setSizemur();
+        tableau[0][i]->classemur();
+        tableau[0][i]->setParent(this);
+
+        delete tableau[col-1][i];
+        tableau[col-1][i] = new Mur(this);
+        tableau[col-1][i]->setCoordinates((col-1)*(taille), i*(taille));
+        tableau[col-1][i]->setSizemur();
+        tableau[col-1][i]->classemur();
+        tableau[col-1][i]->setParent(this);
+
+    }
+    for (int j = 0; j < col; j++) {
+        delete tableau[j][0];
+        tableau[j][0] = new Mur(this);
+        tableau[j][0]->setCoordinates(j*(taille), 0*(taille));
+        tableau[j][0]->setSizemur();
+        tableau[j][0]->classemur();
+        tableau[j][0]->setParent(this);
+
+        delete tableau[j][ligne-1];
+        tableau[j][ligne-1] = new Mur(this);
+        tableau[j][ligne-1]->setCoordinates(j*(taille), (ligne-1)*(taille));
+        tableau[j][ligne-1]->setSizemur();
+        tableau[j][ligne-1]->classemur();
+        tableau[j][ligne-1]->setParent(this);
+
+    }
+    delete tableau[1][ligne-2];
+    tableau[1][ligne-2] = new Mur(this);
+    tableau[1][ligne-2]->setCoordinates(1*(taille), (ligne-2)*(taille));
+    tableau[1][ligne-2]->setSizemur();
+    tableau[1][ligne-2]->classemur();
+    tableau[1][ligne-2]->setParent(this);
+
+    delete tableau[1][ligne-3];
+    tableau[1][ligne-3] = new Mur(this);
+    tableau[1][ligne-3]->setCoordinates(1*(taille), (ligne-3)*(taille));
+    tableau[1][ligne-3]->setSizemur();
+    tableau[1][ligne-3]->classemur();
+    tableau[1][ligne-3]->setParent(this);
+
+    delete tableau[2][ligne-3];
+    tableau[2][ligne-3] = new Mur(this);
+    tableau[2][ligne-3]->setCoordinates(2*(taille), (ligne-3)*(taille));
+    tableau[2][ligne-3]->setSizemur();
+    tableau[2][ligne-3]->classemur();
+    tableau[2][ligne-3]->setParent(this);
+
+    delete tableau[3][ligne-3];
+    tableau[3][ligne-3] = new Mur(this);
+    tableau[3][ligne-3]->setCoordinates(3*(taille), (ligne-3)*(taille));
+    tableau[3][ligne-3]->setSizemur();
+    tableau[3][ligne-3]->classemur();
+    tableau[3][ligne-3]->setParent(this);
+
 
     p = new Personnage(50,50);
-
+    for (int i = 0; i < ligne; i++) {
+        for (int j = 0; j < col; j++) {
+            tableau[i][j]->show();
+        }
+    }
     tableau[1][1]->hide();
 }
 

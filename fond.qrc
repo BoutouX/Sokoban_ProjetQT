@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/fond">
+        <file>fond</file>
+    </qresource>
+</RCC>

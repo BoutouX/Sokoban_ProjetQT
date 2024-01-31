@@ -11,10 +11,10 @@ class Mur : public Case
 {
     Q_OBJECT
 public:
-    int classe=3;
-    explicit Mur (QWidget *parent = nullptr);
-    void setSize() ;
 
+    explicit Mur (QWidget *parent = nullptr);
+    void setSizemur();
+    void classemur();
 
 private:
     QLabel *imageLabel;

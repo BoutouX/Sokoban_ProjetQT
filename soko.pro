@@ -35,6 +35,8 @@ RESOURCES += \
     Ressources/ImagesMur.qrc \
     case.qrc \
     cible.qrc \
+    fond.qrc \
+    mur.qrc \
     personnage.qrc
 
 DISTFILES += \

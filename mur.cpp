@@ -8,14 +8,16 @@ Mur :: Mur (QWidget *parent): Case(parent){
 
 }
 
-void Mur::setSize()
+void Mur::setSizemur()
 {
     int taille = 50;
     // Régler la taille du widget Mur
     setFixedSize(taille, taille);
-    setImagePath(":/Mur/Mur.jpg");
+    setImagePath(":/mur/Mur.jpg");
 }
-
+void Mur::classemur(){
+    classe = 3;
+}
 
 
 
