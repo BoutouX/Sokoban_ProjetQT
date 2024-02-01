@@ -1,18 +1,17 @@
-#ifndef CIBLE_H
-#define CIBLE_H
-
+#ifndef CASEVIDE_H
+#define CASEVIDE_H
 #include "case.h"
 
 #include<QPixmap>
 #include <QPainter>
 #include <QObject>
 #include <QRect>
-class Cible : public Case
+
+class Casevide : public Case
 {
 public:
-    Cible(int x, int y);
+    Casevide(int x, int y);
     void isclasse() override;
 };
 
-
-#endif // CIBLE_H
+#endif // CASEVIDE_H

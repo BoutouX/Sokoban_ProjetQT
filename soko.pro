@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     case.cpp \
+    casevide.cpp \
     cible.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     case.h \
+    casevide.h \
     cible.h \
     mainwindow.h \
     mur.h \

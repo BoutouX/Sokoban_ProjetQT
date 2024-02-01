@@ -3,21 +3,17 @@
 
 #include "case.h"
 
-#include <QWidget>
-#include <QLabel>
-
+#include<QPixmap>
+#include <QPainter>
+#include <QObject>
+#include <QRect>
 
 class Mur : public Case
 {
-    Q_OBJECT
 public:
+    Mur(int x, int y);
+    void isclasse() override ;
 
-    explicit Mur (QWidget *parent = nullptr);
-    void setSizemur();
-    void classemur();
-
-private:
-    QLabel *imageLabel;
 
 };
 

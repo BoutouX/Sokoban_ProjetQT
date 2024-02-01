@@ -1,27 +1,22 @@
 #ifndef CASE_H
 #define CASE_H
 
+#include <QPainter>
 #include <QObject>
-#include <QWidget>
-#include <QLabel>
+#include <QRect>
+
+class Case
+{
+protected:
+    int x,y;
 
 
-class Case : public QWidget
-{   //bonjour
-    Q_OBJECT
 public:
     int classe=1;
-    virtual void classemur();
-    virtual void classecible();
-    explicit Case (QWidget *parent = nullptr);
-    void setImagePath(const QString &path);
-    void setCoordinates(int x, int y);
-    virtual void setSizecible();
-    virtual void setSizemur();
-    void setSize();
+    Case (int x, int y);
+    virtual void isclasse()=0;
+    void dessinercase(QPainter * c,int x, int y, char* chemin);
 
-    private:
-    QLabel *imageLabel;
 };
 
 #endif // CASE_H
